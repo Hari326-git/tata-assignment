@@ -8,4 +8,4 @@ def welcome():
     return f"<h1>Welcome to 2022!</h1><p>Your User-Agent is: {user_agent}</p>"
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=True)
