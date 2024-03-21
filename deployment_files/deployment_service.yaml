@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test
+  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test
+  template:
+    metadata:
+      labels:
+        app: test
+    spec:
+      containers:
+      - image: hariprasad326/apptest:v1
+        name: test
+---
+apiVersion: v1
+kind: Service
+metadata:
+ name: test-service
+spec:
+ type: LoadBalancer
+ selector:
+    app: test
+ ports:
+  - name: "5000"
+    port: 5000
+    targetPort: 5000
